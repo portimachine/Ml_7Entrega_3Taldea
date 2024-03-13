@@ -4,21 +4,21 @@ $env = parse_ini_file(__DIR__ . '/../../../.env');
 
 $APP_DIR = $env["APP_DIR"];
 
-require_once($_SERVER["DOCUMENT_ROOT"] . $APP_DIR . '/src/views/parts/layouts/layoutTop.php'); //Aplikazioaren karpeta edozein lekutatik atzitzeko.
+require_once($_SERVER["DOCUMENT_ROOT"] . $APP_DIR . '/src/views/parts/layouts/layoutTop.php');
 
 require_once(APP_DIR . '/src/views/parts/sidebar.php');
 
 require_once(APP_DIR . '/src/views/parts/header.php');
 
+// Cargar la configuración actual desde el archivo XML
+$config = simplexml_load_file(APP_DIR . '/conf.xml');
+
 // Procesar el formulario si se ha enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['mainColor']) && isset($_POST['footerColor'])) {
-    // Actualizar los valores de color en el XML
-    $config = new SimpleXMLElement('<config></config>');
-    $config->addChild('mainColor', $_POST['mainColor']);
-    $config->addChild('footerColor', $_POST['footerColor']);
+    // Actualizar el color principal en la configuración
+    $config->mainColor = $_POST['mainColor'];
+    // Guardar los cambios en el archivo XML
     $config->asXML(APP_DIR . '/conf.xml');
-} else {
-    $config = simplexml_load_file(APP_DIR . '/conf.xml');
 }
 
 ?>

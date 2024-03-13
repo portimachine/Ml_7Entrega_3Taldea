@@ -8,6 +8,40 @@ require_once($_SERVER["DOCUMENT_ROOT"] . $APP_DIR . '/src/views/parts/layouts/la
 
 require_once(APP_DIR . '/src/views/parts/sidebar.php');
 
+require_once(APP_DIR . '/src/views/parts/header.php');
+
+// Obtener los colores almacenados en el archivo XML
+$config = simplexml_load_file(APP_DIR . '/conf.xml');
+
+$mainColor = $config->mainColor;
+$footerColor = $config->footerColor;
+?>
+
+<style>
+    body {
+        background-color: <?= $mainColor ?>;
+    }
+
+    footer {
+        background-color: <?= $footerColor ?>;
+    }
+</style>
+
+<?php
+
+require_once(APP_DIR . '/src//views/parts/layouts/layoutBottom.php');
+
+?>
+<?php
+
+$env = parse_ini_file(__DIR__ . '/../../../.env');
+
+$APP_DIR = $env["APP_DIR"];
+
+require_once($_SERVER["DOCUMENT_ROOT"] . $APP_DIR . '/src/views/parts/layouts/layoutTop.php'); //Aplikazioaren karpeta edozein lekutatik atzitzeko.
+
+require_once(APP_DIR . '/src/views/parts/sidebar.php');
+
 require_once(APP_DIR  . '/src/views/parts/header.php');
 
 //DBra joan
