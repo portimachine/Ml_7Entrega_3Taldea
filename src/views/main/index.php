@@ -29,21 +29,6 @@ $footerColor = $config->footerColor;
 
 <?php
 
-require_once(APP_DIR . '/src//views/parts/layouts/layoutBottom.php');
-
-?>
-<?php
-
-$env = parse_ini_file(__DIR__ . '/../../../.env');
-
-$APP_DIR = $env["APP_DIR"];
-
-require_once($_SERVER["DOCUMENT_ROOT"] . $APP_DIR . '/src/views/parts/layouts/layoutTop.php'); //Aplikazioaren karpeta edozein lekutatik atzitzeko.
-
-require_once(APP_DIR . '/src/views/parts/sidebar.php');
-
-require_once(APP_DIR  . '/src/views/parts/header.php');
-
 //DBra joan
 require_once(APP_DIR . '/src/php/connect.php');
 
@@ -132,7 +117,7 @@ if ($result->num_rows > 0) {
                     <input type="hidden" id="courseId" value="<?= $kurtsoa ?>" />
                     <div class="form">
                         <label for="email">Email:<span class="asterisco">*</span></label>
-                        <input type="email" name="email" id="email" placeholder="xxx_xxx_xxx@goierrieskola.org" pattern="(([a-zA-Z]{3}_[a-zA-Z]{3}_)([a-zA-Z]{3})?(_[0-9]{4})?|[a-z]{5,})@(goierrieskola\.org|goierrieskola\.eus)$" required>
+                        <input type="email" name="email" id="email" placeholder="xxx_xxx_xxx@goierrieskola.org" pattern="(([a-zA-Z]{3}[a-zA-Z]{3})([a-zA-Z]{3})?(_[0-9]{4})?|[a-z]{5,})@(goierrieskola\.org|goierrieskola\.eus)$" required>
                         <br>
                         <label for="balorazioa">Balorazioa<span class="asterisco" id="balorazioa">*</span>:
                             <i id="info-icon" class="fa fa-info-circle"></i>
@@ -187,5 +172,7 @@ if ($result->num_rows > 0) {
         echo "<br>";
     }
 }
-require_once(APP_DIR  . '/src//views/parts/layouts/layoutBottom.php');
+
 ?>
+
+<?php require_once(APP_DIR . '/src//views/parts/layouts/layoutBottom.php');?>
