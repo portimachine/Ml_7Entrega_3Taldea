@@ -4,7 +4,7 @@ $env = parse_ini_file(__DIR__ . '/../../../.env');
 
 $APP_DIR = $env["APP_DIR"];
 
-require_once($_SERVER["DOCUMENT_ROOT"] . $APP_DIR . '/src/views/parts/layouts/layoutTop.php'); //Aplikazioaren karpeta edozein lekutatik atzitzeko.
+require_once($_SERVER["DOCUMENT_ROOT"] . $APP_DIR . '/src/views/parts/layouts/layoutTop.php');
 
 require_once(APP_DIR . '/src/views/parts/sidebar.php');
 
@@ -18,8 +18,9 @@ $footerColor = $config->footerColor;
 ?>
 
 <style>
-    body {
-        background-color: <?= $mainColor ?>;
+    /* Cambia el color de los títulos según el color principal */
+    h1, h2, h3, h4, h5, h6, span {
+        color: <?= $mainColor ?>;
     }
 
     footer {
@@ -28,21 +29,6 @@ $footerColor = $config->footerColor;
 </style>
 
 <?php
-
-require_once(APP_DIR . '/src//views/parts/layouts/layoutBottom.php');
-
-?>
-<?php
-
-$env = parse_ini_file(__DIR__ . '/../../../.env');
-
-$APP_DIR = $env["APP_DIR"];
-
-require_once($_SERVER["DOCUMENT_ROOT"] . $APP_DIR . '/src/views/parts/layouts/layoutTop.php'); //Aplikazioaren karpeta edozein lekutatik atzitzeko.
-
-require_once(APP_DIR . '/src/views/parts/sidebar.php');
-
-require_once(APP_DIR  . '/src/views/parts/header.php');
 
 //DBra joan
 require_once(APP_DIR . '/src/php/connect.php');
@@ -187,5 +173,7 @@ if ($result->num_rows > 0) {
         echo "<br>";
     }
 }
-require_once(APP_DIR  . '/src//views/parts/layouts/layoutBottom.php');
+
 ?>
+
+<?php require_once(APP_DIR . '/src//views/parts/layouts/layoutBottom.php'); ?>

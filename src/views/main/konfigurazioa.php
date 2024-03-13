@@ -46,8 +46,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['mainColor']) && isset(
 </div>
 
 <style>
-    body {
-        background-color: <?= $config->mainColor ?>;
+    h1, h2, h3, h4, h5, h6, span {
+        color: <?= $config->mainColor ?>;
     }
     footer {
         background-color: <?= $config->footerColor ?>;
