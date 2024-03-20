@@ -30,9 +30,11 @@ writeLog("Orria kargatu da", ["url" => $actual_link, "get" => json_encode($_GET)
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <?php
     //XMLko konfiguraziotik hartzen dute informazioa
+    $conf_path = 'C:/Users/amuru/Documents/Java/HTML/public/goierriAzokaBase/conf.xml';
+    $conf = simplexml_load_file($conf_path);
 
-    $mainColor = "#a1a2a3";
-    $footerColor = "#555555";
+$mainColor = $conf->mainColor;
+$footerColor = $conf->footerColor;
 
     ?>
     <style>
@@ -49,4 +51,4 @@ writeLog("Orria kargatu da", ["url" => $actual_link, "get" => json_encode($_GET)
 
 </head>
 
-<body class="">
+<body class="">
