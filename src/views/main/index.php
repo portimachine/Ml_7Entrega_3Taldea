@@ -10,25 +10,7 @@ require_once(APP_DIR . '/src/views/parts/sidebar.php');
 
 require_once(APP_DIR . '/src/views/parts/header.php');
 
-// Obtener los colores almacenados en el archivo XML
-$config = simplexml_load_file(APP_DIR . '/conf.xml');
 
-$mainColor = $config->mainColor;
-$footerColor = $config->footerColor;
-?>
-
-<style>
-    /* Cambia el color de los títulos según el color principal */
-    h1, h2, h3, h4, h5, h6, span {
-        color: <?= $mainColor ?>;
-    }
-
-    footer {
-        background-color: <?= $footerColor ?>;
-    }
-</style>
-
-<?php
 
 //DBra joan
 require_once(APP_DIR . '/src/php/connect.php');
@@ -118,7 +100,7 @@ if ($result->num_rows > 0) {
                     <input type="hidden" id="courseId" value="<?= $kurtsoa ?>" />
                     <div class="form">
                         <label for="email">Email:<span class="asterisco">*</span></label>
-                        <input type="email" name="email" id="email" placeholder="xxx_xxx_xxx@goierrieskola.org" pattern="(([a-zA-Z]{3}_[a-zA-Z]{3}_)([a-zA-Z]{3})?(_[0-9]{4})?|[a-z]{5,})@(goierrieskola\.org|goierrieskola\.eus)$" required>
+                        <input type="email" name="email" id="email" placeholder="xxx_xxx_xxx@goierrieskola.org" pattern="(([a-zA-Z]{3}[a-zA-Z]{3})([a-zA-Z]{3})?(_[0-9]{4})?|[a-z]{5,})@(goierrieskola\.org|goierrieskola\.eus)$" required>
                         <br>
                         <label for="balorazioa">Balorazioa<span class="asterisco" id="balorazioa">*</span>:
                             <i id="info-icon" class="fa fa-info-circle"></i>
