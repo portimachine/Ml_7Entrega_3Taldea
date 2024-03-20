@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
-    <mainColor>#090076</mainColor>
-    <footerColor>#800000</footerColor>
+    <mainColor>#ff0000</mainColor>
+    <footerColor>#da2b2b</footerColor>
 </config>
