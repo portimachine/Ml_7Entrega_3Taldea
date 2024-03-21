@@ -46,7 +46,7 @@ if ($result->num_rows > 0) {
                 </span>
             </h1>
             <h2>(<?= $laburbildura ?>)</h2>
-            <br>
+            <br>    
             <div>
                 <?php
                 if (!is_null($multimedia_type) && $multimedia_type == Constants::YT_VIDEO) {

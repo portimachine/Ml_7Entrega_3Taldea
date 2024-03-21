@@ -32,8 +32,8 @@ writeLog("Orria kargatu da", ["url" => $actual_link, "get" => json_encode($_GET)
 
     $conf = simplexml_load_file(APP_DIR . "/conf.xml");
 
-$mainColor = $conf->mainColor;
-$footerColor = $conf->footerColor;
+        $mainColor = $conf->mainColor;
+        $footerColor = $conf->footerColor;
 
     ?>
     <style>
