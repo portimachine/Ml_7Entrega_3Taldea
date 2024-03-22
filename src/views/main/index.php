@@ -152,6 +152,31 @@ if ($result->num_rows > 0) {
 
                 <input type="submit" value="Bidali">
             </form>
+            <?php
+              if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                // Formularioko datuak lortu
+                $izena = $_POST['izena'];
+                $komentarioa = $_POST['komentarioa'];
+                $data = date('Y-m-d'); // Data aktuala lortu
+
+                // xml artxiboa kargatu
+                $archivo_xml = 'iruzkina.xml';
+                $xml = simplexml_load_file($archivo_xml);
+
+                // Komentario berria gehitu
+                $komentario_berria = $xml->addChild('iruzkina');
+                $komentario_berria->addChild('izena', $izena);
+                $komentario_berria->addChild('data', $data);
+                $komentario_berria->addChild('komentarioa', $komentarioa);
+
+                // XML-a gorde
+                $xml->asXML($archivo_xml);
+                echo "Komentarioa zuzen gorde da.";
+              }else{
+                
+              }
+            ?>
+
         </div>
 
         <?php
