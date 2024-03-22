@@ -46,7 +46,7 @@ if ($result->num_rows > 0) {
                 </span>
             </h1>
             <h2>(<?= $laburbildura ?>)</h2>
-            <br>    
+            <br>
             <div>
                 <?php
                 if (!is_null($multimedia_type) && $multimedia_type == Constants::YT_VIDEO) {
@@ -77,6 +77,7 @@ if ($result->num_rows > 0) {
                     </a>
                 </span>
             </div>
+
             <?php
             if ($scanned) {
             ?>
@@ -141,12 +142,23 @@ if ($result->num_rows > 0) {
         </div>
 
         </div>
+        <div>
+            <form action="galdetegia.php" method="post">
+                <label for="izena">Izena:</label><br>
+                <input type="text" id="izena" name="izena" required><br><br>
+
+                <label for="komentarioa">Komentarioa:</label><br>
+                <textarea id="komentarioa" name="komentarioa" rows="4" cols="50" required></textarea><br><br>
+
+                <input type="submit" value="Bidali">
+            </form>
+        </div>
 
         <?php
         if (!is_null($multimedia_type) && $multimedia_type == Constants::DEFAULT_IMAGE) {
         ?>
-        <!-- Defektuzko argazkia badauka beheran okupatu egingo du. -->
-        <div class="botomSpace"></div>
+            <!-- Defektuzko argazkia badauka beheran okupatu egingo du. -->
+            <div class="botomSpace"></div>
 <?php
         }
     } else {
