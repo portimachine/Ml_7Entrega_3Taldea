@@ -144,6 +144,7 @@ if ($result->num_rows > 0) {
         </div>
         <div>
             <form action="galdetegia.php" method="post">
+                <input type="hidden" name="kurtsoa" value="<?= $kurtsoa ?>">
                 <label for="izena">Izena:</label><br>
                 <input type="text" id="izena" name="izena" required><br><br>
 
@@ -153,20 +154,24 @@ if ($result->num_rows > 0) {
                 <input type="submit" value="Bidali">
             </form>
         </div>
-        <div>
-        <?php
-        
-        $xml = simplexml_load_file("iruzkinak.xml");
 
-        foreach ($xml->komentarioa as $komentarioa) {
-            echo "<div>";
-            echo "<p><strong>Izena:</strong> " . $komentarioa->izena . "</p>";
-            echo "<p><strong>Mensajea:</strong> " . $komentarioa->mensajea . "</p>";
-            echo "<p><strong>Data:</strong> " . $komentarioa->data . "</p>";
-            echo "</div>";
-        }
-        ?>
-    </div>
+        <div>
+            <?php
+            
+            $xml = simplexml_load_file("iruzkinak.xml");
+
+            
+            foreach ($xml->komentarioa as $komentarioa) {
+                if ($komentarioa->kurtsoa == $kurtsoa) {
+                    echo "<div>";
+                    echo "<p><strong>Izena:</strong> " . $komentarioa->izena . "</p>";
+                    echo "<p><strong>Mensajea:</strong> " . $komentarioa->mensajea . "</p>";
+                    echo "<p><strong>Data:</strong> " . $komentarioa->data . "</p>";
+                    echo "</div>";
+                }
+            }
+            ?>
+        </div>
 
         <?php
         if (!is_null($multimedia_type) && $multimedia_type == Constants::DEFAULT_IMAGE) {
