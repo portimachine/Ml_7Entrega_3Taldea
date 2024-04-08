@@ -17,6 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     $xml->asXML("iruzkinak.xml");
 
+    //Hemen birkargatzea falta zaizue header-arekin, 1. ariketan egin duzuen bezala.
     
     echo "<div>";
     echo "<p><strong>Zuzen gorde da iruzkina, itzuli eta ikusi dena</strong></p>";
